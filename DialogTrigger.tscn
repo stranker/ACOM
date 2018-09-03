@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="GDScript" id=1]
+
+resource_name = "DialogTrigger.gd"
+script/source = "extends Area2D
+
+export (PoolStringArray) var dialogs
+export (int) var duration
+export (bool) var reactive
+var activated = false
+
+func _on_DialogTrigger_body_entered(body):
+	if body.is_in_group(\"Player\") and !activated:
+		activated = true
+		body.play_dialog(dialogs,duration)
+	pass # replace with function body
+
+
+func _on_DialogTrigger_body_exited(body):
+	if reactive:
+		if body.is_in_group(\"Player\") and activated:
+			activated = false
+	pass # replace with function body
+"
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 45.2625
+
+[node name="DialogTrigger" type="Area2D"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+dialogs = null
+duration = null
+reactive = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="_on_DialogTrigger_body_entered"]
+
+[connection signal="body_exited" from="." to="." method="_on_DialogTrigger_body_exited"]
+
+

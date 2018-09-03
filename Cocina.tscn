@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://cocina.jpg" type="Texture" id=1]
+[ext_resource path="res://bowl.jpg" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=2]
+
+script/source = "extends Sprite
+
+func _on_Heladera_body_entered(body):
+	if body.is_in_group(\"Player\"):
+		body.camera_close_up()
+	pass # replace with function body
+
+
+func _on_Heladera_body_exited(body):
+	if body.is_in_group(\"Player\"):
+		body.camera_away()
+	pass # replace with function body
+"
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 7.98152
+
+[node name="cocina" type="Sprite"]
+
+scale = Vector2( 0.499101, 0.499101 )
+texture = ExtResource( 1 )
+script = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Heladera" type="Area2D" parent="." index="0"]
+
+scale = Vector2( 11.9547, 11.904 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Heladera" index="0"]
+
+position = Vector2( -0.260534, 8.50519 )
+shape = SubResource( 1 )
+
+[node name="bowl" type="Sprite" parent="." index="1"]
+
+position = Vector2( 1639.11, 174.258 )
+scale = Vector2( 0.235061, 0.235061 )
+texture = ExtResource( 2 )
+
+[connection signal="body_entered" from="Heladera" to="." method="_on_Heladera_body_entered"]
+
+[connection signal="body_exited" from="Heladera" to="." method="_on_Heladera_body_exited"]
+
+

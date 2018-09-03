@@ -1,0 +1,218 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://background.png" type="Texture" id=1]
+[ext_resource path="res://Cocina.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://DialogTrigger.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Floor.tscn" type="PackedScene" id=5]
+
+[sub_resource type="GDScript" id=4]
+
+script/source = "extends Node2D
+
+var playing = false
+
+func _ready():
+	pass
+
+func set_playing(val):
+	playing = val
+	activate_player()
+	pass
+
+func activate_player():
+	$Player.activate()
+	pass"
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "Init"
+length = 4.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.3, 2.5, 2.7, 3, 3.3, 3.5, 3.7, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 310.521, -39.8355 ), Vector2( 346.521, 112.164 ), Vector2( 382.521, 264.164 ), Vector2( 419.521, 423.164 ), Vector2( 454.521, 369.164 ), Vector2( 474.96, 350.435 ), Vector2( 485.009, 377.737 ), Vector2( 513.209, 422.903 ), Vector2( 533.077, 387.022 ), Vector2( 548.861, 382.967 ), Vector2( 557.107, 401.559 ), Vector2( 567.886, 417.964 ), Vector2( 581.102, 424.652 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 1.7, 2, 2.3, 2.5, 2.7, 3, 3.3, 3.5, 3.7, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 47.6252, 131.584, 360.0, 400.0, 470.0, 544.492, 589.115, 635.646, 695.568, 732.323, 755.728, 770.449, 810.0 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_playing"
+} ]
+}
+
+[node name="test" type="Node2D"]
+
+position = Vector2( 35.3698, 29.9282 )
+script = SubResource( 4 )
+
+[node name="background" type="Sprite" parent="." index="0"]
+
+position = Vector2( 2432.27, 1759.46 )
+scale = Vector2( 5.9666, 5.94128 )
+texture = ExtResource( 1 )
+
+[node name="cocina" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 3025.21, 1219.04 )
+
+[node name="Player" parent="." index="2" groups=[
+"Player",
+] instance=ExtResource( 3 )]
+
+position = Vector2( 2497.37, 1286.57 )
+rotation = 14.1372
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Init = SubResource( 3 )
+blend_times = [  ]
+
+[node name="Dialogs" type="Node" parent="." index="4"]
+
+editor/display_folded = true
+
+[node name="DialogTrigger" parent="Dialogs" index="0" instance=ExtResource( 4 )]
+
+position = Vector2( 622.479, 428.126 )
+dialogs = PoolStringArray( "Ouch... eso dolió" )
+duration = 2
+
+[node name="DialogTrigger2" parent="Dialogs" index="1" instance=ExtResource( 4 )]
+
+position = Vector2( 301.33, 424.371 )
+dialogs = PoolStringArray( "Creo que este no es el camino" )
+duration = 2
+reactive = true
+
+[node name="DialogTrigger3" parent="Dialogs" index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 877.224, 363.501 )
+dialogs = PoolStringArray( "¿Qué es este lugar\?" )
+duration = 2
+reactive = false
+
+[node name="DialogTrigger4" parent="Dialogs" index="3" instance=ExtResource( 4 )]
+
+position = Vector2( 1188.9, 360.655 )
+dialogs = PoolStringArray( "Parece ser el final del camino", "¿Deberia saltar\?" )
+duration = 2
+reactive = false
+
+[node name="DialogTrigger5" parent="Dialogs" index="4" instance=ExtResource( 4 )]
+
+position = Vector2( 1627.02, 1290.08 )
+dialogs = PoolStringArray( "Alguien deberia poner escaleras en este lugar" )
+duration = 2
+reactive = false
+
+[node name="DialogTrigger6" parent="Dialogs" index="5" instance=ExtResource( 4 )]
+
+position = Vector2( 2647.22, 1287.1 )
+dialogs = PoolStringArray( "Yo conozco este lugar...", "Esta es la cocina de mis padres" )
+duration = 3
+reactive = false
+
+[node name="DialogTrigger7" parent="Dialogs" index="6" instance=ExtResource( 4 )]
+
+position = Vector2( 3037.87, 1289.73 )
+dialogs = PoolStringArray( "Esta tal cual la recuerdo", "Aunque... le faltan mis dibujos de niño a la heladera" )
+duration = 3
+reactive = false
+
+[node name="DialogTrigger8" parent="Dialogs" index="7" instance=ExtResource( 4 )]
+
+position = Vector2( 3406.07, 1295.04 )
+dialogs = PoolStringArray( "Deberian estar cerca" )
+duration = 3
+reactive = false
+
+[node name="DialogTrigger9" parent="Dialogs" index="8" instance=ExtResource( 4 )]
+
+position = Vector2( 3775.07, 1296.04 )
+dialogs = PoolStringArray( "El bowl de Panchito!", "Extraño su felicidad al verme llegar a casa" )
+duration = 3
+reactive = false
+
+[node name="Floor" parent="." index="5" instance=ExtResource( 5 )]
+
+position = Vector2( 426.195, 459.12 )
+scale = Vector2( 13.8331, 1 )
+
+[node name="Floor3" parent="." index="6" instance=ExtResource( 5 )]
+
+position = Vector2( 668.756, 490.68 )
+scale = Vector2( 1.40537, 1 )
+
+[node name="Floor4" parent="." index="7" instance=ExtResource( 5 )]
+
+position = Vector2( 713.641, 523.252 )
+scale = Vector2( 1.40537, 1 )
+
+[node name="Floor6" parent="." index="8" instance=ExtResource( 5 )]
+
+position = Vector2( 758.507, 555.438 )
+scale = Vector2( 1.40537, 1 )
+
+[node name="Floor5" parent="." index="9" instance=ExtResource( 5 )]
+
+position = Vector2( 1000.04, 483.272 )
+scale = Vector2( 13.651, 5.49467 )
+
+[node name="Floor7" parent="." index="10" instance=ExtResource( 5 )]
+
+position = Vector2( 1000.32, 1012.94 )
+scale = Vector2( 13.651, 27.5686 )
+
+[node name="Floor8" parent="." index="11" instance=ExtResource( 5 )]
+
+position = Vector2( 1628.35, 1389.29 )
+scale = Vector2( 25.883, 4.14168 )
+
+[node name="Floor9" parent="." index="12" instance=ExtResource( 5 )]
+
+position = Vector2( 3047.13, 1389.07 )
+scale = Vector2( 68.1299, 4.14168 )
+
+[node name="Floor2" parent="." index="13" instance=ExtResource( 5 )]
+
+position = Vector2( 197.941, 253.026 )
+rotation = 1.5708
+scale = Vector2( 13.8331, 1 )
+_sections_unfolded = [ "Transform" ]
+
+
