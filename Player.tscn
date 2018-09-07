@@ -4,7 +4,7 @@
 [ext_resource path="res://luz.png" type="Texture" id=2]
 [ext_resource path="res://DialogManager.tscn" type="PackedScene" id=3]
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="GDScript" id=1]
 
 resource_name = "Player.gd"
 script/source = "extends KinematicBody2D
@@ -86,12 +86,12 @@ func camera_away():
 	pass"
 _sections_unfolded = [ "Resource" ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 16.0744, 16.0072 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 
 resource_name = "CameraZoomIn"
 length = 1.0
@@ -110,7 +110,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0.7, 0.7 ), Vector2( 0.5, 0.5 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 
 resource_name = "CameraZoomOut"
 length = 1.0
@@ -129,13 +129,13 @@ tracks/0/keys = {
 "values": [ Vector2( 0.5, 0.5 ), Vector2( 0.7, 0.7 ) ]
 }
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = SubResource( 2 )
+script = SubResource( 1 )
 _sections_unfolded = [ "Visibility" ]
 run_speed = 200
 jump_speed = 400
@@ -147,7 +147,7 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Light2D" type="Light2D" parent="." index="2"]
 
@@ -175,6 +175,9 @@ shadow_item_cull_mask = 1
 _sections_unfolded = [ "Range", "Shadow" ]
 
 [node name="DialogManager" parent="." index="3" instance=ExtResource( 3 )]
+
+margin_top = -44.0
+margin_bottom = -18.0
 
 [node name="Camera" type="Camera2D" parent="." index="4"]
 
@@ -209,8 +212,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/CameraZoomIn = SubResource( 5 )
-anims/CameraZoomOut = SubResource( 6 )
+anims/CameraZoomIn = SubResource( 3 )
+anims/CameraZoomOut = SubResource( 4 )
 blend_times = [  ]
 
 
