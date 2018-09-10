@@ -1,25 +1,24 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://WorTiles.png" type="Texture" id=1]
-[ext_resource path="res://WorkTiles.png" type="Texture" id=2]
+[ext_resource path="res://WorkTiles.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-[sub_resource type="OccluderPolygon2D" id=4]
+[sub_resource type="OccluderPolygon2D" id=2]
 
 closed = true
 cull_mode = 0
 polygon = PoolVector2Array( -32, -16, -32, -16, 32, -16, 32, 32, -32, 32, -32, -16 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32, 34.8375 )
 
-[sub_resource type="OccluderPolygon2D" id=3]
+[sub_resource type="OccluderPolygon2D" id=4]
 
 closed = true
 cull_mode = 0
@@ -54,14 +53,14 @@ shape = SubResource( 1 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="WorkFloor_1" index="1"]
 
-occluder = SubResource( 4 )
+occluder = SubResource( 2 )
 light_mask = 1
 
 [node name="WorkFloor_2" type="Sprite" parent="." index="1"]
 
 editor/display_folded = true
 position = Vector2( 112, 32 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 64, 0, 64, 64 )
 _sections_unfolded = [ "Region" ]
@@ -85,7 +84,7 @@ shape = SubResource( 1 )
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="WorkFloor_2" index="1"]
 
-occluder = SubResource( 4 )
+occluder = SubResource( 2 )
 light_mask = 1
 _sections_unfolded = [ "Transform" ]
 
@@ -93,7 +92,7 @@ _sections_unfolded = [ "Transform" ]
 
 editor/display_folded = true
 position = Vector2( 192, 32 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 128, 0, 64, 64 )
 _sections_unfolded = [ "Offset", "Region" ]
@@ -117,7 +116,7 @@ shape = SubResource( 1 )
 
 [node name="LightOccluder2D3" type="LightOccluder2D" parent="WorkFloor_3" index="1"]
 
-occluder = SubResource( 4 )
+occluder = SubResource( 2 )
 light_mask = 1
 _sections_unfolded = [ "Transform" ]
 
@@ -125,7 +124,7 @@ _sections_unfolded = [ "Transform" ]
 
 editor/display_folded = true
 position = Vector2( 272, 32 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 256, 0, 64, 64 )
 _sections_unfolded = [ "Region" ]
@@ -144,12 +143,12 @@ _sections_unfolded = [ "Transform" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorkFloor_4/StaticBody2D3" index="0"]
 
 scale = Vector2( 1, 0.918551 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="WorkFloorNC_5" type="Sprite" parent="." index="4"]
 
 position = Vector2( 352, 32 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 256, 0, 64, 64 )
 _sections_unfolded = [ "Region" ]
@@ -157,7 +156,7 @@ _sections_unfolded = [ "Region" ]
 [node name="WorkWall_1" type="Sprite" parent="." index="5"]
 
 position = Vector2( 32, 104 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 64, 64, 64 )
 _sections_unfolded = [ "Region" ]
@@ -165,7 +164,7 @@ _sections_unfolded = [ "Region" ]
 [node name="WorkWall_2" type="Sprite" parent="." index="6"]
 
 position = Vector2( 112, 104 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 64, 64, 64, 64 )
 _sections_unfolded = [ "Region" ]
@@ -173,7 +172,7 @@ _sections_unfolded = [ "Region" ]
 [node name="WorkWall_3" type="Sprite" parent="." index="7"]
 
 position = Vector2( 192, 104 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 128, 64, 64, 64 )
 _sections_unfolded = [ "Region" ]
@@ -181,7 +180,7 @@ _sections_unfolded = [ "Region" ]
 [node name="WorkWall_4" type="Sprite" parent="." index="8"]
 
 position = Vector2( 272, 104 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 192, 64, 64, 64 )
 _sections_unfolded = [ "Region" ]
@@ -189,7 +188,7 @@ _sections_unfolded = [ "Region" ]
 [node name="WorkWall_5" type="Sprite" parent="." index="9"]
 
 position = Vector2( 32, 104 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 64, 64, 64 )
 _sections_unfolded = [ "Region" ]
@@ -198,7 +197,7 @@ _sections_unfolded = [ "Region" ]
 
 editor/display_folded = true
 position = Vector2( 352, 104 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 256, 64, 64, 64 )
 _sections_unfolded = [ "Region" ]
@@ -217,11 +216,11 @@ _sections_unfolded = [ "Transform" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorkWall_6/StaticBody2D4" index="0"]
 
 scale = Vector2( 1, 0.918551 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="WorkWall_6" index="1"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 4 )
 light_mask = 1
 
 

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/asd.jpg-72c4c78b3ad587d6ae15ecce2b2ed62a.stex"
+path="res://.import/WorkTiles.png-2155e995cbe7d12db077428f3617e774.stex"
 
 [deps]
 
-source_file="res://asd.jpg"
-dest_files=[ "res://.import/asd.jpg-72c4c78b3ad587d6ae15ecce2b2ed62a.stex" ]
+source_file="res://WorkTiles.png"
+dest_files=[ "res://.import/WorkTiles.png-2155e995cbe7d12db077428f3617e774.stex" ]
 
 [params]
 
