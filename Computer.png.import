@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WorkTiles.png-2155e995cbe7d12db077428f3617e774.stex"
+path="res://.import/Computer.png-c8fab4e7af8ffb5c2aa5bdebc663f18d.stex"
 
 [deps]
 
-source_file="res://WorkTiles.png"
-dest_files=[ "res://.import/WorkTiles.png-2155e995cbe7d12db077428f3617e774.stex" ]
+source_file="res://Computer.png"
+dest_files=[ "res://.import/Computer.png-c8fab4e7af8ffb5c2aa5bdebc663f18d.stex" ]
 
 [params]
 

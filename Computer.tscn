@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Computer.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "Animation"
+length = 3.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 1, 1.3, 1.4, 1.5, 1.7, 2.5, 2.6, 2.7, 2.8, 2.9, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0 ]
+}
+
+[sub_resource type="OccluderPolygon2D" id=2]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -31.7829, 2.36854, -32.2016, -29.9757, 31.9635, -29.9757, 31.9635, 2.15919 )
+
+[node name="Computer" type="Sprite"]
+
+texture = ExtResource( 1 )
+hframes = 2
+_sections_unfolded = [ "Animation", "Region", "Transform" ]
+
+[node name="Anim" type="AnimationPlayer" parent="." index="0"]
+
+root_node = NodePath("..")
+autoplay = "Animation"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Animation = SubResource( 1 )
+blend_times = [  ]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." index="1"]
+
+occluder = SubResource( 2 )
+light_mask = 1
+
+

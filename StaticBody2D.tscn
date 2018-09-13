@@ -84,9 +84,7 @@ texture = ExtResource( 1 )
 
 position = Vector2( 3025.21, 1219.04 )
 
-[node name="Player" parent="." index="2" groups=[
-"Player",
-] instance=ExtResource( 3 )]
+[node name="Player" parent="." index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 2497.37, 1286.57 )
 rotation = 14.1372

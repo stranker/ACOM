@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WorkTiles.png-2155e995cbe7d12db077428f3617e774.stex"
+path="res://.import/Money.png-541613d3c923e127287fcc17103fcbbc.stex"
 
 [deps]
 
-source_file="res://WorkTiles.png"
-dest_files=[ "res://.import/WorkTiles.png-2155e995cbe7d12db077428f3617e774.stex" ]
+source_file="res://Money.png"
+dest_files=[ "res://.import/Money.png-541613d3c923e127287fcc17103fcbbc.stex" ]
 
 [params]
 
